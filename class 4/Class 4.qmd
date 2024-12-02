@@ -1,0 +1,7 @@
+---
+title: "Class 1"
+author: "Darwin Del Castillo"
+format: beamer
+editor: visual
+---
+
