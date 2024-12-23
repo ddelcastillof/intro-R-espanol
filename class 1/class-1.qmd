@@ -1,0 +1,52 @@
+---
+title: "Taller de introducción a R"
+author: "Darwin Del Castillo"
+format: 
+  beamer:
+    fontsize: 12pt
+    slide-level: 2
+    aspectratio: 1610
+editor: visual
+---
+
+## About me
+:::{.columns}
+::: {.column width="60%"}
+\begin{footnotesize}
+\begin{itemize}
+ \item Soy médico egresado de la UNMSM (Lima, Perú)
+ \item Estudiante de la Maestría en Salud Pública en University of Washington (Seattle, WA).
+ \item Anteriormente fui asistente de investigación en CRONICAS, Centro de Excelencia en Enfermedades Crónicas (UPCH).
+ \item Actualmente trabajando como asistente de investigación en el Departamento de Salud Global de UW y en el Equipo de Informática Clínica del Institute for Health Metrics and Evaluation (IHME).
+ \item Trabajo con herramientas que se encuentran en la intersección de epidemiología y ciencias de datos en salud. Mi interés en investigación es  \textbf{\href{https://doi.org/10.1177/1559827619879694}{el origen temprano de las enfermedades no transmisibles}}
+\end{itemize}
+\end{footnotesize}
+:::
+
+::: {.column width="40%"}
+\par
+\centering
+\includegraphics[width=0.9\linewidth]{slides_figs/my_picture.jpeg}
+\par
+:::
+:::
+
+## Contenido del curso
+Seis sesiones con los siguientes temas:
+\begin{itemize}
+  \item Introducción a R y RStudio (IDE)
+  \item Limpieza de datos en R/RStudio
+  \item Estadística descriptiva: Tablas de resumen y gráficos básicos
+  \item Estadística inferencial: Pruebas de hipótesis bivariadas
+  \item Modelo de regresión lineal simple: supuestos, ajuste y diagnóstico
+  \item Extras: regresión múltiple y otros modelos, introducción a version control con GitHub
+\end{itemize}
+
+## Objetivos del curso
+\begin{itemize}
+  \item Conocer las bases del lenguaje de programación R y su IDE RStudio
+  \item Realizar limpieza de datos en R
+  \item Identificar pruebas de hipótesis y gráficos adecuados útiles para tus trabajos de investigación (\textbf{tesis})
+  \item Conocer conceptos básicos de version control con GitHub
+  \item Reconocer cuando pedir ayuda y qué pedir exactamente
+\end{itemize}
