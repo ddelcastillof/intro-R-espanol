@@ -11,6 +11,7 @@ editor: visual
 ---
 
 ## About me
+
 ::::: columns
 ::: {.column width="60%"}
 \begin{footnotesize}
@@ -26,12 +27,13 @@ editor: visual
 
 ::: {.column width="40%"}
 \begin{center}
-\includegraphics[width=0.9\linewidth]{slides_figs/my_picture.jpeg}
+\includegraphics[width=1\linewidth]{slides_figs/Untitled.png}
 \end{center}
 :::
 :::::
 
 ## Contenido del curso
+
 Seis sesiones con los siguientes temas:
 
 \begin{itemize}
@@ -44,6 +46,7 @@ Seis sesiones con los siguientes temas:
 \end{itemize}
 
 ## Objetivos del curso
+
 \begin{itemize}
   \item Conocer las bases del lenguaje de programación R y su IDE RStudio
   \item Realizar limpieza de datos en R
@@ -53,44 +56,49 @@ Seis sesiones con los siguientes temas:
 \end{itemize}
 
 ## ¿Qué es R?
+
 \begin{itemize}
   \item R es un lenguaje de programación y un entorno de desarrollo para análisis estadístico y gráfico.
   \item Utilizado principalmente en biomedicina por sus capacidades estadísticas y su habilidad para generar gráficos de alta calidad.
   \item R base es útil, el poder del código base de R se amplifica cuando añadimos paquetes (explicaremos esto más adelante)
 \end{itemize}
 
-
 ## ¿Por qué R? — Comunidad
-::::: columns
+
+:::::: columns
 ::: {.column width="33.3%"}
 \begin{center}
 \includegraphics[width=0.9\linewidth]{slides_figs/R_bloggers.png}
 \end{center}
 :::
+
 ::: {.column width="33.3%"}
 \begin{center}
 \includegraphics[width=0.9\linewidth]{slides_figs/stack_overflow.png}
 \end{center}
 :::
+
 ::: {.column width="33.3%"}
 \begin{center}
 \includegraphics[width=0.9\linewidth]{slides_figs/R_data_science.png}
 \end{center}
 :::
-:::::
+::::::
 
 ## ¿Por qué R? — Flexibilidad
+
 \begin{center}
 \includegraphics[width=1\linewidth]{slides_figs/packages.png}
 \end{center}
 
 ## ¿Por qué R? — Gráficos, documentos, presentaciones, páginas web
+
 \begin{center}
 \includegraphics[width=0.75\linewidth]{slides_figs/webpage.png}
 \end{center}
 
 ## ¿Por qué R? — Lo más importante
+
 \begin{center}
 \includegraphics[width=0.5\linewidth]{slides_figs/free.png}
 \end{center}
-
