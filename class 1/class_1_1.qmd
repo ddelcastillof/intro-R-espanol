@@ -1,0 +1,89 @@
+---
+title: "Introducción a R: Instalación y elementos básicos"
+author: "Darwin Del Castillo, MD"
+format: 
+  beamer:
+    fontsize: 12pt
+    slide-level: 2
+    aspectratio: 1610
+    theme: "Malmoe"
+    toc: true
+    toc-title: "Contenido de hoy"
+    number-sections: false
+    section-titles: true
+editor: visual
+---
+
+# Instalación
+
+## ¿Cómo instalar R?
+Descargar R de la página oficial: \underline{\url{https://cran.r-project.org/}}
+
+\begin{center}
+\includegraphics[width=1\linewidth]{slides_figs/CRAN.png}
+\end{center}
+
+## R
+\begin{center}
+\includegraphics[width=0.65\linewidth]{slides_figs/R.png}
+\end{center}
+
+## ¿Cómo instalar RStudio?
+Descargar RStudio de la página oficial: \underline{\url{https://posit.co/products/rstudio/download/}}
+
+\begin{center}
+\includegraphics[width=0.5\linewidth]{slides_figs/Posit.png}
+\end{center}
+
+## ¿Qué es RStudio?
+\begin{itemize}
+ \item RStudio es un entorno de desarrollo integrado (IDE) para R.
+ \item Interfaz gráfica que facilita la escritura de código en R.
+ \item No es la única, pero es la más popular (p.ej. RCommander, Visual Studio Code, Positron, Jupyter).
+\end{itemize}
+
+## RStudio
+\begin{center}
+\includegraphics[width=1\linewidth]{slides_figs/RStudio.png}
+\end{center}
+
+## RStudio: Elementos de la interfaz
+\begin{center}
+\includegraphics[width=1\linewidth]{slides_figs/Elementos_RStudio.png}
+\end{center}
+
+# R: Mis primeros pasos
+
+## R: Operaciones básicas
+:::::: columns
+::: {.column width="50%"}
+\begin{itemize}
+ \item R puede ser utilizado como una calculadora.
+ \item Operadores aritméticos: $+$, $-$, $\times$, $/$, $\wedge$, $\sqrt{\phantom{x}}$
+\end{itemize}
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+# Suma básica
+1 + 1
+
+# Multiplicación
+3 * 4
+
+# Potencia
+2^3
+
+# Raíz cuadrada
+sqrt(16)
+```
+:::
+:::::: 
+
+## R: Objetos
+
+
+
+ 
