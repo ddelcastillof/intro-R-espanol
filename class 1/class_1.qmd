@@ -1,16 +1,17 @@
 ---
 title: "Taller de introducción a R"
-author: "Darwin Del Castillo"
+author: "Darwin Del Castillo, MD"
 format: 
   beamer:
     fontsize: 12pt
     slide-level: 2
     aspectratio: 1610
+    theme: "Malmoe"
 editor: visual
 ---
 
 ## About me
-:::{.columns}
+::::: columns
 ::: {.column width="60%"}
 \begin{footnotesize}
 \begin{itemize}
@@ -18,21 +19,21 @@ editor: visual
  \item Estudiante de la Maestría en Salud Pública en University of Washington (Seattle, WA).
  \item Anteriormente fui asistente de investigación en CRONICAS, Centro de Excelencia en Enfermedades Crónicas (UPCH).
  \item Actualmente trabajando como asistente de investigación en el Departamento de Salud Global de UW y en el Equipo de Informática Clínica del Institute for Health Metrics and Evaluation (IHME).
- \item Trabajo con herramientas que se encuentran en la intersección de epidemiología y ciencias de datos en salud. Mi interés en investigación es  \textbf{\href{https://doi.org/10.1177/1559827619879694}{el origen temprano de las enfermedades no transmisibles}}
+ \item Trabajo en la intersección de epidemiología y ciencias de datos en salud. Mi interés en investigación es  \textbf{\href{https://doi.org/10.1177/1559827619879694}{el origen temprano de las enfermedades no transmisibles}} y en \textbf{{ENT en edades tempranas}}.
 \end{itemize}
 \end{footnotesize}
 :::
 
 ::: {.column width="40%"}
-\par
-\centering
+\begin{center}
 \includegraphics[width=0.9\linewidth]{slides_figs/my_picture.jpeg}
-\par
+\end{center}
 :::
-:::
+:::::
 
 ## Contenido del curso
 Seis sesiones con los siguientes temas:
+
 \begin{itemize}
   \item Introducción a R y RStudio (IDE)
   \item Limpieza de datos en R/RStudio
@@ -50,3 +51,46 @@ Seis sesiones con los siguientes temas:
   \item Conocer conceptos básicos de version control con GitHub
   \item Reconocer cuando pedir ayuda y qué pedir exactamente
 \end{itemize}
+
+## ¿Qué es R?
+\begin{itemize}
+  \item R es un lenguaje de programación y un entorno de desarrollo para análisis estadístico y gráfico.
+  \item Utilizado principalmente en biomedicina por sus capacidades estadísticas y su habilidad para generar gráficos de alta calidad.
+  \item R base es útil, el poder del código base de R se amplifica cuando añadimos paquetes (explicaremos esto más adelante)
+\end{itemize}
+
+
+## ¿Por qué R? — Comunidad
+::::: columns
+::: {.column width="33.3%"}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{slides_figs/R_bloggers.png}
+\end{center}
+:::
+::: {.column width="33.3%"}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{slides_figs/stack_overflow.png}
+\end{center}
+:::
+::: {.column width="33.3%"}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{slides_figs/R_data_science.png}
+\end{center}
+:::
+:::::
+
+## ¿Por qué R? — Flexibilidad
+\begin{center}
+\includegraphics[width=1\linewidth]{slides_figs/packages.png}
+\end{center}
+
+## ¿Por qué R? — Gráficos, documentos, presentaciones, páginas web
+\begin{center}
+\includegraphics[width=0.75\linewidth]{slides_figs/webpage.png}
+\end{center}
+
+## ¿Por qué R? — Lo más importante
+\begin{center}
+\includegraphics[width=0.5\linewidth]{slides_figs/free.png}
+\end{center}
+
