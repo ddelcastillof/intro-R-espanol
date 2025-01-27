@@ -210,12 +210,3 @@ installed.packages()[, c("Package", "Version")]
 # ?mean
 # help(sum)
 # example(plot)
-
-# Para practicar
-# -----------------------------------------------------------------
-# Ejercicios sugeridos:
-# 1. Crear un vector de 10 números aleatorios entre 1 y 100
-# 2. Calcular la media, mediana y desviación estándar
-# 3. Crear una matriz 4x4 con los números del 1 al 16
-# 4. Crear una lista que contenga un vector, una matriz y un data frame
-# 5. Escribir una función que calcule el área y perímetro de un rectángulo

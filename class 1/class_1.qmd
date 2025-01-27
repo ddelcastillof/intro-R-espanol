@@ -14,6 +14,7 @@ editor: visual
 
 ::::: columns
 ::: {.column width="60%"}
+\begin{center}
 \begin{footnotesize}
 \begin{itemize}
  \item Soy médico egresado de la UNMSM (Lima, Perú)
@@ -23,6 +24,7 @@ editor: visual
  \item Trabajo en la intersección de epidemiología y ciencias de datos en salud. Mi interés en investigación es  \textbf{\href{https://doi.org/10.1177/1559827619879694}{el origen temprano de las enfermedades no transmisibles}} y en \textbf{{ENT en edades tempranas}}.
 \end{itemize}
 \end{footnotesize}
+\end{center}
 :::
 
 ::: {.column width="40%"}
@@ -32,17 +34,41 @@ editor: visual
 :::
 :::::
 
+
+## About José
+::::: columns
+::: {.column width="60%"}
+\begin{center}
+\begin{footnotesize}
+\begin{itemize}
+ \item Soy tecnólogo médico de laboratorio de la UNMSM
+ \item Trabajé como analista en el laboratorio de biología molecular – Suizalab. 
+ \item Soy Asistente de investigación del grupo MedMol de la Facultad de Medicina “San Fernando”.
+ \item Trabajo en el hospital LaFranco La Hoz en el área de Microbiología.
+ \item Me interesa la programación en bioinformática y el estudio de la genómica bacteriana.
+\end{itemize}
+\end{footnotesize}
+\end{center}
+:::
+
+::: {.column width="40%"}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{slides_figs/Jose.png}
+\end{center}
+:::
+:::::
+
+
 ## Contenido del curso
 
-Seis sesiones con los siguientes temas:
+Cinco sesiones con los siguientes temas:
 
 \begin{itemize}
   \item Introducción a R y RStudio (IDE)
   \item Limpieza de datos en R/RStudio
   \item Estadística descriptiva: Tablas de resumen y gráficos básicos
   \item Estadística inferencial: Pruebas de hipótesis bivariadas
-  \item Modelo de regresión lineal simple: supuestos, ajuste y diagnóstico
-  \item Extras: regresión múltiple y otros modelos, introducción a version control con GitHub
+  \item Extras: regresión lineal simple y múltiple. Otros modelos. Introducción a version control con GitHub
 \end{itemize}
 
 ## Objetivos del curso

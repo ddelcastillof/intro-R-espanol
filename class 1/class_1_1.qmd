@@ -17,6 +17,7 @@ editor: visual
 # Instalación
 
 ## ¿Cómo instalar R?
+
 Descargar R de la página oficial: \underline{\url{https://cran.r-project.org/}}
 
 \begin{center}
@@ -24,11 +25,13 @@ Descargar R de la página oficial: \underline{\url{https://cran.r-project.org/}}
 \end{center}
 
 ## R
+
 \begin{center}
 \includegraphics[width=0.65\linewidth]{slides_figs/R.png}
 \end{center}
 
 ## ¿Cómo instalar RStudio?
+
 Descargar RStudio de la página oficial: \underline{\url{https://posit.co/products/rstudio/download/}}
 
 \begin{center}
@@ -36,6 +39,7 @@ Descargar RStudio de la página oficial: \underline{\url{https://posit.co/produc
 \end{center}
 
 ## ¿Qué es RStudio?
+
 \begin{itemize}
  \item RStudio es un entorno de desarrollo integrado (IDE) para R.
  \item Interfaz gráfica que facilita la escritura de código en R.
@@ -43,11 +47,13 @@ Descargar RStudio de la página oficial: \underline{\url{https://posit.co/produc
 \end{itemize}
 
 ## RStudio
+
 \begin{center}
 \includegraphics[width=1\linewidth]{slides_figs/RStudio.png}
 \end{center}
 
 ## RStudio: Elementos de la interfaz
+
 \begin{center}
 \includegraphics[width=1\linewidth]{slides_figs/Elementos_RStudio.png}
 \end{center}
@@ -55,7 +61,8 @@ Descargar RStudio de la página oficial: \underline{\url{https://posit.co/produc
 # R: Mis primeros pasos
 
 ## R: Operaciones básicas
-:::::: columns
+
+::::: columns
 ::: {.column width="50%"}
 \begin{itemize}
  \item R puede ser utilizado como una calculadora.
@@ -80,10 +87,4 @@ Descargar RStudio de la página oficial: \underline{\url{https://posit.co/produc
 sqrt(16)
 ```
 :::
-:::::: 
-
-## R: Objetos
-
-
-
- 
+:::::
