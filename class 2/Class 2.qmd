@@ -1,7 +1,6 @@
 ---
-title: "Class 1"
-author: "Darwin Del Castillo"
+title: "Class 2"
+author: "Darwin Del Castillo & José Tinedo"
 format: beamer
 editor: visual
 ---
-
