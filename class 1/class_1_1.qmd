@@ -1,6 +1,9 @@
 ---
 title: "Introducción a R: Instalación y elementos básicos"
 author: "Darwin Del Castillo, MD"
+date: "Enero 25, 2025"
+date-format: "DD/MM/YYYY"
+lang: es
 format: 
   beamer:
     fontsize: 12pt

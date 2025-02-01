@@ -1,6 +1,9 @@
 ---
 title: "Taller de introducción a R"
 author: "Darwin Del Castillo, MD"
+date: "Enero 25, 2025"
+date-format: "DD/MM/YYYY"
+lang: es
 format: 
   beamer:
     fontsize: 12pt
@@ -34,8 +37,8 @@ editor: visual
 :::
 :::::
 
-
 ## About José
+
 ::::: columns
 ::: {.column width="60%"}
 \begin{center}
@@ -57,7 +60,6 @@ editor: visual
 \end{center}
 :::
 :::::
-
 
 ## Contenido del curso
 
