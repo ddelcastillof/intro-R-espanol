@@ -1,0 +1,263 @@
+---
+title: "Introducción a la Limpieza de Datos y Tidyverse"
+author: "Darwin Del Castillo, MD"
+date: "Febrero 1, 2025"
+date-format: "DD/MM/YYYY"
+lang: es
+format: 
+  beamer:
+    fontsize: 12t
+    slide-level: 2
+    aspectratio: 1610
+    theme: "Malmoe"
+    number-sections: false
+    section-titles: true
+    code-overflow: scroll
+    fig-width: 4.5
+    fig-height: 3
+    fig-align: center
+editor: visual
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  out.width = "100%",
+  fig.align = "center"
+)
+options(width = 40)
+
+# Cargar paquetes necesarios
+library(tidyverse)
+if (!require(kableExtra)) {
+  install.packages("kableExtra")
+  library(kableExtra)
+}
+```
+
+# Limpieza de Datos en R
+
+## ¿Por qué es importante la limpieza de datos?
+
+* Los datos raramente vienen en el formato que necesitamos
+* Datos sucios = análisis incorrectos
+* La limpieza puede tomar hasta 80% del tiempo de análisis
+* Una buena limpieza facilita el análisis posterior
+
+## Problemas comunes en datos
+
+* Valores faltantes (NA)
+* Datos en formato incorrecto
+* Nombres de variables inconsistentes
+* Datos duplicados
+* Errores de digitación
+
+## R Base: Limpieza básica
+
+```{r}
+#| eval: false
+# Detectar valores NA
+is.na(datos)
+
+# Eliminar NA
+na.omit(datos)
+
+# Cambiar nombres de columnas
+names(datos) <- c("nombre1", "nombre2")
+
+# Convertir tipos de datos
+as.numeric(datos$columna)
+as.character(datos$columna)
+as.factor(datos$columna)
+```
+
+# Introducción a Tidyverse
+
+## ¿Qué es Tidyverse?
+
+* Colección de paquetes para ciencia de datos
+* Diseñado para trabajar en conjunto
+* Filosofía común de datos ordenados
+* Sintaxis consistente y moderna
+
+## Instalación de Tidyverse
+
+```{r}
+#| eval: false
+# Instalar tidyverse
+install.packages("tidyverse")
+
+# Cargar tidyverse
+library(tidyverse)
+```
+
+## Ejemplo práctico
+
+::: {.columns}
+::: {.column width="60%"}
+\small
+```{r}
+# Crear datos de ejemplo
+set.seed(123)
+datos_ejemplo <- data.frame(
+  id = 1:5,
+  edad = c(25, 30, NA, 45, 50),
+  sexo = c("M", "F", "f", "M", "M"),
+  peso = c(70, 65, 68, 80, 75)
+)
+```
+:::
+
+::: {.column width="40%"}
+\small
+```{r}
+#| echo: false
+datos_ejemplo
+```
+:::
+:::
+
+## Limpieza con tidyverse
+
+::: {.columns}
+::: {.column width="45%"}
+\small
+```{r}
+datos_limpios <- datos_ejemplo |>
+  # Estandarizar sexo
+  mutate(
+    sexo = toupper(sexo),
+    # Crear IMC
+    altura = c(170, 165, 
+              168, 180, 
+              175),
+    imc = peso / ((altura/100)^2)
+  ) |>
+  # Remover NA
+  drop_na()
+```
+:::
+
+::: {.column width="55%"}
+\small
+```{r}
+#| echo: false
+datos_limpios
+```
+:::
+:::
+
+## Análisis básico
+
+::: {.columns}
+::: {.column width="45%"}
+```{r}
+# Resumen por sexo
+tabla_1 <- datos_limpios |>
+  group_by(sexo) |>
+  summarise(
+    n = n(),
+    edad_promedio = mean(edad),
+    peso_promedio = mean(peso)
+  )
+```
+:::
+
+::: {.column width="55%"}
+```{r}
+#| echo: false
+tabla_1
+```
+:::
+:::
+
+## Visualización con ggplot2
+
+::: {.columns}
+::: {.column width="55%"}
+\small
+```{r}
+#| echo: true
+#| eval: true
+# Crear el gráfico
+graph_1 <- ggplot(datos_limpios, 
+       aes(x = edad, 
+           y = peso, 
+           color = sexo)) +
+  geom_point(size = 3) +
+  labs(
+    title = "Edad y Peso",
+    x = "Edad (años)",
+    y = "Peso (kg)"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(size = 8),
+    plot.title = element_text(size = 10)
+  )
+```
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+#| fig-align: "center"
+graph_1
+```
+:::
+:::
+
+## dplyr: Funciones principales
+\small
+```{r}
+#| eval: false
+# Select: seleccionar columnas
+select(datos, columna1, columna2)
+
+# Filter: filtrar filas
+filter(datos, columna > 10)
+
+# Mutate: crear/modificar columnas
+mutate(datos, nueva = columna1 + columna2)
+
+# Group_by + summarise
+datos |>
+  group_by(grupo) |>
+  summarise(
+    promedio = mean(valor),
+    total = sum(valor)
+  )
+```
+
+## tidyr: Datos ordenados
+\small
+```{r}
+#| eval: false
+# De ancho a largo
+pivot_longer(
+  datos,
+  cols = c(col1, col2),
+  names_to = "variable",
+  values_to = "valor"
+)
+
+# De largo a ancho
+pivot_wider(
+  datos,
+  names_from = "variable",
+  values_from = "valor"
+)
+```
+
+## Recursos adicionales
+
+* R for Data Science (r4ds.had.co.nz)
+* Tidyverse website (tidyverse.org)
+* RStudio cheat sheets
+* Stack Overflow
+* GitHub
