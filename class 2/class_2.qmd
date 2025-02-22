@@ -42,18 +42,18 @@ if (!require(kableExtra)) {
 
 ## ¿Por qué es importante la limpieza de datos?
 
-* Los datos raramente vienen en el formato que necesitamos
-* Datos sucios = análisis incorrectos
-* La limpieza puede tomar hasta 80% del tiempo de análisis
-* Una buena limpieza facilita el análisis posterior
+-   Los datos raramente vienen en el formato que necesitamos
+-   Datos sucios = análisis incorrectos
+-   La limpieza puede tomar hasta 80% del tiempo de análisis
+-   Una buena limpieza facilita el análisis posterior
 
 ## Problemas comunes en datos
 
-* Valores faltantes (NA)
-* Datos en formato incorrecto
-* Nombres de variables inconsistentes
-* Datos duplicados
-* Errores de digitación
+-   Valores faltantes (NA)
+-   Datos en formato incorrecto
+-   Nombres de variables inconsistentes
+-   Datos duplicados
+-   Errores de digitación
 
 ## R Base: Limpieza básica
 
@@ -78,10 +78,10 @@ as.factor(datos$columna)
 
 ## ¿Qué es Tidyverse?
 
-* Colección de paquetes para ciencia de datos
-* Diseñado para trabajar en conjunto
-* Filosofía común de datos ordenados
-* Sintaxis consistente y moderna
+-   Colección de paquetes para ciencia de datos
+-   Diseñado para trabajar en conjunto
+-   Filosofía común de datos ordenados
+-   Sintaxis consistente y moderna
 
 ## Instalación de Tidyverse
 
@@ -96,9 +96,10 @@ library(tidyverse)
 
 ## Ejemplo práctico
 
-::: {.columns}
+::::: columns
 ::: {.column width="60%"}
 \small
+
 ```{r}
 # Crear datos de ejemplo
 set.seed(123)
@@ -113,18 +114,20 @@ datos_ejemplo <- data.frame(
 
 ::: {.column width="40%"}
 \small
+
 ```{r}
 #| echo: false
 datos_ejemplo
 ```
 :::
-:::
+:::::
 
 ## Limpieza con tidyverse
 
-::: {.columns}
+::::: columns
 ::: {.column width="45%"}
 \small
+
 ```{r}
 datos_limpios <- datos_ejemplo |>
   # Estandarizar sexo
@@ -143,16 +146,17 @@ datos_limpios <- datos_ejemplo |>
 
 ::: {.column width="55%"}
 \small
+
 ```{r}
 #| echo: false
 datos_limpios
 ```
 :::
-:::
+:::::
 
 ## Análisis básico
 
-::: {.columns}
+::::: columns
 ::: {.column width="45%"}
 ```{r}
 # Resumen por sexo
@@ -172,13 +176,14 @@ tabla_1 <- datos_limpios |>
 tabla_1
 ```
 :::
-:::
+:::::
 
 ## Visualización con ggplot2
 
-::: {.columns}
+::::: columns
 ::: {.column width="55%"}
 \small
+
 ```{r}
 #| echo: true
 #| eval: true
@@ -210,10 +215,12 @@ graph_1 <- ggplot(datos_limpios,
 graph_1
 ```
 :::
-:::
+:::::
 
 ## dplyr: Funciones principales
+
 \small
+
 ```{r}
 #| eval: false
 # Select: seleccionar columnas
@@ -235,7 +242,9 @@ datos |>
 ```
 
 ## tidyr: Datos ordenados
+
 \small
+
 ```{r}
 #| eval: false
 # De ancho a largo
@@ -256,8 +265,8 @@ pivot_wider(
 
 ## Recursos adicionales
 
-* R for Data Science (r4ds.had.co.nz)
-* Tidyverse website (tidyverse.org)
-* RStudio cheat sheets
-* Stack Overflow
-* GitHub
+-   R for Data Science (r4ds.had.co.nz)
+-   Tidyverse website (tidyverse.org)
+-   RStudio cheat sheets
+-   Stack Overflow
+-   GitHub

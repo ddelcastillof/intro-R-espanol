@@ -1,0 +1,483 @@
+---
+title: "Estadística Descriptiva y Bivariada"
+author: "Darwin Del Castillo, MD"
+date: "Febrero 15, 2025"
+date-format: "DD/MM/YYYY"
+lang: es
+format: 
+  beamer:
+    fontsize: 12t
+    slide-level: 2
+    aspectratio: 1610
+    theme: "Malmoe"
+    toc: false
+    toc-title: "Contenido de hoy"
+    number-sections: false
+    section-titles: true
+    code-overflow: scroll
+    fig-width: 4.5
+    fig-height: 3
+    fig-align: center
+editor: visual
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  out.width = "100%",
+  fig.align = "center"
+)
+options(width = 40)
+```
+
+# Estadística Descriptiva
+
+## ¿Qué es la estadística descriptiva?
+
+La estadística descriptiva nos permite:
+
+-   Organizar datos
+-   Resumir información
+-   Presentar resultados de manera comprensible
+-   Base para análisis más complejos
+
+# Tipos de Variables
+
+## Variables cualitativas (categóricas)
+
+::::: columns
+::: {.column width="40%"}
+-   Nominales: sexo, grupo sanguíneo
+-   Ordinales: severidad (leve, moderado, severo)
+:::
+
+::: {.column width="60%"}
+```{r grafico qual}
+#| eval: true
+#| include: true
+#| echo: false
+# Load required library
+library(ggplot2)
+
+grupos_sanguineos <- c("A+", "B+", "O+", "AB+", "A-", "B-", "O-", "AB-")
+frecuencias <- c(34, 9, 38, 3, 6, 2, 7, 1)
+
+# Create a data frame from the existing vectors
+# This is a best practice in ggplot2 as it makes data manipulation easier
+grupos_df <- data.frame(
+  grupo = grupos_sanguineos,
+  frecuencia = frecuencias
+)
+
+# Create the ggplot
+ggplot(grupos_df, aes(x = grupo, y = frecuencia)) +
+  # Use geom_col() for bar plots with height mapped to a variable
+  geom_col(fill = "lightblue", color = "black") +
+  
+  # Add labels and title
+  labs(
+    title = "Ejemplo: Grupos Sanguíneos",
+    x = "Grupo Sanguíneo", 
+    y = "Frecuencia"
+  ) +
+  
+  # Customize the theme
+  theme_minimal() +
+  
+  # Rotate x-axis labels for better readability
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(hjust = 0.5)
+  )
+```
+:::
+:::::
+
+## Variables cuantitativas (numéricas)
+
+::::: columns
+::: {.column width="40%"}
+-   Discretas: número de hijos
+-   Continuas: peso, talla
+:::
+
+::: {.column width="60%"}
+```{r grafico quant}
+#| eval: true
+#| include: true
+#| echo: false
+
+# Load required library
+library(ggplot2)
+
+# Set the same random seed for reproducibility
+set.seed(123)
+
+# Generate the weight data
+pesos <- rnorm(100, mean = 70, sd = 10)
+
+# Create a data frame
+# This is a best practice in ggplot2 as it makes data manipulation easier
+pesos_df <- data.frame(peso = pesos)
+
+# Create the ggplot
+ggplot(pesos_df, aes(x = peso)) +
+  # Use geom_histogram() for histogram
+  geom_histogram(
+    bins = 20,           # Same number of breaks as in original hist()
+    fill = "lightgreen", # Same color as original
+    color = "black",     # Add black outline for better definition
+    alpha = 0.7          # Slight transparency
+  ) +
+  
+  # Add labels and title
+  labs(
+    title = "Ejemplo: Distribución de Pesos",
+    x = "Peso (kg)", 
+    y = "Frecuencia"
+  ) +
+  
+  # Customize the theme
+  theme_minimal() +
+  
+  # Additional theme adjustments for professional look
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    axis.title = element_text(face = "italic")
+  )
+```
+:::
+:::::
+
+## Medidas de Tendencia Central
+
+::::: columns
+::: {.column width="40%"}
+Las principales medidas son:
+
+### Media (promedio aritmético)
+
+Sensible a valores extremos\
+Útil para variables simétricas
+
+### Mediana (percentil 50)
+
+Divide los datos en dos partes iguales\
+Robusta a valores extremos
+
+### Moda
+
+Valor más frecuente\
+Útil en variables categóricas
+:::
+
+::: {.column width="60%"}
+```{r grafico medidas}
+#| eval: true
+#| include: true
+#| echo: false
+# Código para crear una distribución normal en R con ggplot2
+# Mostrando media, mediana y moda
+
+# Cargar librerías necesarias
+library(ggplot2)
+library(dplyr)
+
+# Código para crear una distribución normal en R con ggplot2
+# Mostrando media, mediana y moda
+
+# Cargar librerías necesarias
+library(ggplot2)
+library(dplyr)
+
+# Generar datos para la distribución normal
+set.seed(123)  # Para reproducibilidad
+datos <- data.frame(valor = rnorm(1000, mean = 0, sd = 1))
+
+# Calcular medidas de tendencia central
+media <- mean(datos$valor)
+mediana <- median(datos$valor)
+moda <- media  # En una distribución normal, la media, mediana y moda son iguales
+
+# Crear el gráfico con ggplot2
+ggplot(datos, aes(x = valor)) +
+  # Histograma de la distribución
+  geom_histogram(aes(y = ..density..), 
+                 bins = 30, 
+                 fill = "lightblue", 
+                 color = "black") +
+  
+  # Línea de densidad
+  geom_density(color = "darkblue", size = 1) +
+  
+  # Línea de la media
+  geom_vline(xintercept = media, 
+             color = "red", 
+             linetype = "dashed", 
+             size = 1) +
+  
+  # Línea de la mediana
+  geom_vline(xintercept = mediana, 
+             color = "green", 
+             linetype = "dashed", 
+             size = 1) +
+  
+  # Línea de la moda
+  geom_vline(xintercept = moda, 
+             color = "purple", 
+             linetype = "dashed", 
+             size = 1) +
+  
+  # Etiquetas y título
+  labs(
+    title = "Distribución Normal",
+    x = "Valor",
+    y = "Densidad"
+  ) +
+  
+  # Tema
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),  # Centrar título horizontalmente
+    plot.title.position = "plot"  # Asegurar posicionamiento del título
+  )
+
+```
+:::
+:::::
+
+## Medidas de Dispersión
+
+Nos indican qué tan dispersos están los datos:
+
+-   Rango: diferencia entre máximo y mínimo
+-   Desviación estándar: dispersión promedio alrededor de la media
+-   Rango intercuartil (IQR): diferencia entre percentil 75 y 25
+-   Varianza: cuadrado de la desviación estándar
+
+# Estadística Bivariada
+
+## ¿Qué es la estadística bivariada?
+
+-   Estudia la relación entre dos variables
+-   Permite hacer comparaciones entre grupos
+-   Base para inferencia estadística
+-   Ayuda a probar hipótesis
+
+## Prueba t de Student
+
+::::: columns
+::: {.column width="40%"}
+\small
+
+La prueba t nos permite:
+
+-   Comparar medias entre grupos
+-   Evaluar si las diferencias son estadísticamente significativas
+:::
+
+::: {.column width="60%"}
+```{r script para grafico t}
+#| eval: true
+#| include: true
+#| echo: false
+
+# Creamos la secuencia de valores x
+x <- seq(-4, 4, length.out = 100)
+
+# Creamos un dataframe con todas las distribuciones
+df_distribuciones <- data.frame(
+  x = rep(x, 4),
+  densidad = c(
+    dt(x, df = 1),    # t con 1 grado de libertad
+    dt(x, df = 5),    # t con 5 grados de libertad
+    dt(x, df = 30),   # t con 30 grados de libertad
+    dnorm(x)          # distribución normal
+  ),
+  distribucion = factor(rep(c("df = 1", "df = 5", "df = 30", "Normal"), 
+                           each = 100))
+)
+
+# Creamos el gráfico usando ggplot2
+library(ggplot2)
+
+ggplot(df_distribuciones, aes(x = x, y = densidad, color = distribucion)) +
+  # Agregamos las líneas
+  geom_line(aes(linetype = distribucion == "Normal")) +
+  # Personalizamos los colores y tipos de línea
+  scale_color_manual(values = c("red", "blue", "green", "black")) +
+  scale_linetype_manual(values = c("solid", "solid", "solid", "dashed"), 
+                       guide = "none") +
+  # Agregamos títulos y etiquetas
+  labs(title = "Distribución t-Student",
+       x = "Valores",
+       y = "Densidad",
+       color = "Distribución") +
+  # Personalizamos el tema
+  theme_minimal() +
+  # Ajustamos la posición de la leyenda y otros elementos
+  theme(
+    legend.position = c(0.85, 0.95),
+    legend.background = element_rect(fill = "white", color = NA),
+    legend.text = element_text(size = 8),
+    plot.title = element_text(hjust = 0.5)
+  )
+```
+:::
+:::::
+
+## Supuestos importantes:
+
+-   Normalidad
+-   Homogeneidad de varianzas
+-   Independencia de observaciones
+
+## Tipos de prueba t
+
+### Prueba t para una muestra
+
+Compara con un valor de referencia\
+Ejemplo: ¿El promedio de glucosa es diferente de 100 mg/dL?
+
+### Prueba t para muestras independientes
+
+Compara dos grupos diferentes\
+Ejemplo: ¿Hay diferencia entre tratamiento y control?
+
+### Prueba t para muestras pareadas
+
+Compara mediciones repetidas\
+Ejemplo: ¿Hay cambio antes vs después del tratamiento?
+
+## Interpretación de la prueba t
+
+Elementos clave:
+
+-   Valor del estadístico t
+-   Grados de libertad
+-   Valor p
+-   Intervalo de confianza
+-   Significancia clínica vs estadística
+
+## Prueba Chi-cuadrado
+
+La prueba chi-cuadrado evalúa:
+
+-   Asociación entre variables categóricas
+-   Si las diferencias observadas son mayores a las esperadas por azar
+-   Independencia entre variables
+
+## Tipos de Chi-cuadrado
+
+::::: columns
+::: {.column width="40%"}
+\footnotesize
+
+### Chi-cuadrado de bondad de ajuste
+
+Compara frecuencias observadas vs esperadas\
+Ejemplo: ¿Los datos siguen una distribución específica?
+
+### Chi-cuadrado de independencia
+
+Evalúa asociación entre variables categóricas\
+Ejemplo: ¿Existe relación entre sexo y respuesta al tratamiento?
+
+### Chi-cuadrado de homogeneidad
+
+Compara distribuciones entre grupos\
+Ejemplo: ¿La distribución de efectos adversos es similar entre tratamientos?
+:::
+
+::: {.column width="60%"}
+```{r script para graficos chi2}
+#| eval: true
+#| include: true
+#| echo: false
+# Primero creamos un dataframe con nuestros datos
+# Esto es una práctica recomendada en ggplot2 ya que facilita la manipulación
+set.seed(123)
+df_regresion <- data.frame(
+  x = seq(1, 100, length.out = 50),
+  y = NA  # Inicializamos y como NA y la llenaremos después
+)
+
+# Generamos los valores de y según el modelo
+df_regresion$y <- 2 + 3*df_regresion$x + rnorm(50, 0, 30)
+
+# Ajustamos el modelo de regresión
+modelo <- lm(y ~ x, data = df_regresion)
+
+# Calculamos R cuadrado
+r2 <- summary(modelo)$r.squared
+
+# Calculamos chi-cuadrado de los residuos
+chi2 <- sum(residuals(modelo)^2)
+# Calculamos grados de libertad
+gl <- length(df_regresion$x) - 2  # n - número de parámetros estimados
+# Calculamos el p-valor del chi-cuadrado
+p_valor_chi2 <- 1 - pchisq(chi2, df = gl)
+
+# Creamos el gráfico usando ggplot2
+library(ggplot2)
+
+ggplot(df_regresion, aes(x = x, y = y)) +
+  # Agregamos los puntos de dispersión
+  geom_point(color = "black", alpha = 0.6) +
+  # Agregamos la línea de regresión
+  geom_smooth(method = "lm", 
+             color = "red", 
+             se = FALSE,    # No mostrar intervalo de confianza
+             formula = y ~ x) +
+  # Personalizamos títulos y etiquetas
+  labs(title = paste("Regresión Lineal\n(R² = ", round(r2, 3), 
+                     ", x² = ", round(chi2, 2),
+                     ", p(x²) < 0.001)"),
+       x = "Variable X",
+       y = "Variable Y") +
+  # Aplicamos un tema minimalista
+  theme_minimal() +
+  # Personalizamos elementos del tema
+  theme(
+    plot.title = element_text(hjust = 0.5),  # Centramos el título
+    panel.grid.minor = element_blank(),       # Eliminamos grilla menor
+    panel.grid.major = element_line(color = "gray90")  # Grilla mayor más sutil
+  )
+```
+:::
+:::::
+
+## Interpretación del Chi-cuadrado
+
+Elementos importantes:
+
+-   Tabla de contingencia
+-   Estadístico chi-cuadrado
+-   Grados de libertad
+-   Valor p
+-   Frecuencias esperadas \> 5
+
+## ¿Cuándo usar cada prueba?
+
+La elección depende de:
+
+-   Tipo de variables (categóricas vs numéricas)
+-   Distribución de los datos
+-   Tamaño de muestra
+-   Objetivo del análisis
+
+## Alternativas No Paramétricas
+
+Cuando no se cumplen las asunciones:
+
+-   Mann-Whitney U (vs t de Student)
+-   Wilcoxon (vs t pareada)
+-   Test exacto de Fisher (vs Chi-cuadrado)
+-   Kruskal-Wallis (vs ANOVA)
+
+## Referencias
+
+Van Belle, G., Fisher, L. D., Heagerty, P. J., & Lumley, T. (2004). Biostatistics: a methodology for the health sciences. John Wiley & Sons.

@@ -1,0 +1,198 @@
+---
+title: "Introducción a la Regresión Lineal"
+author: "Darwin Del Castillo, MD"
+date: "Febrero 22, 2025"
+date-format: "DD/MM/YYYY"
+lang: es
+format: 
+  beamer:
+    fontsize: 12t
+    slide-level: 2
+    aspectratio: 1610
+    theme: "Malmoe"
+    toc: false
+    toc-title: "Contenido de hoy"
+    number-sections: false
+    section-titles: true
+    code-overflow: scroll
+    fig-width: 6
+    fig-height: 4
+    fig-align: center
+editor: visual
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  out.width = "100%",
+  fig.align = "center"
+)
+options(width = 40)
+```
+
+# Regresión Lineal Simple
+
+## ¿Qué es la regresión lineal?
+
+- Método estadístico para modelar la relación entre variables
+- Predice una variable dependiente (Y) a partir de una independiente (X)
+- Asume relación lineal entre variables
+- Base para análisis más complejos
+
+## Ecuación de la regresión lineal
+
+::::: columns
+::: {.column width="40%"}
+La ecuación básica es:
+
+$Y = \beta_0 + \beta_1X + \varepsilon$
+
+Donde: \
+- $\beta_0$: Intercepto \
+- $\beta_1$: Pendiente \
+- $\varepsilon$: Error aleatorio
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+# Generar datos de ejemplo
+set.seed(123)
+x <- seq(1, 10, length.out = 50)
+y <- 2 + 3*x + rnorm(50, 0, 1.5)
+datos <- data.frame(x = x, y = y)
+
+# Crear gráfico con ggplot2
+library(ggplot2)
+ggplot(datos, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Ejemplo de Regresión Lineal",
+       x = "Variable X",
+       y = "Variable Y") +
+  theme_minimal()
+```
+:::
+:::::
+
+## Supuestos de la regresión lineal
+
+1. Linealidad (L)
+2. Independencia de observaciones (I)
+3. Normalidad de residuos (N)
+4. Homocedasticidad: varianza constante de residuos (E)
+
+## Ejemplo en R
+
+```{r}
+#| echo: true
+# Crear datos de ejemplo
+peso <- c(70, 65, 88, 72, 75, 67, 92, 69, 77, 80)
+altura <- c(170, 168, 182, 175, 171, 169, 185, 169, 176, 178)
+
+# Ajustar modelo
+modelo <- lm(peso ~ altura)
+
+# Ver resultados
+summary(modelo)
+```
+
+## Interpretación del modelo
+
+### Elementos importantes:
+
+- Coeficientes ($\beta_0$, $\beta_1$)
+- Error estándar
+- Valor t
+- Valor p
+- R² (coeficiente de determinación)
+
+## Diagnóstico del modelo
+
+::::: columns
+::: {.column width="40%"}
+### Gráficos importantes:
+
+1. Residuos vs ajustados
+2. Q-Q plot
+3. Scale-Location
+4. Residuos vs leverage
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+par(mfrow = c(2,2))
+plot(modelo)
+```
+:::
+:::::
+
+# Aplicaciones Prácticas
+
+## Predicción
+
+```{r}
+#| echo: true
+# Crear nuevos datos
+nuevas_alturas <- data.frame(altura = c(175, 180))
+
+# Realizar predicción
+predict(modelo, nuevas_alturas, interval = "confidence")
+```
+
+## Visualización de resultados
+
+::::: columns
+::: {.column width="40%"}
+### Elementos a incluir
+
+- Datos originales
+- Línea de regresión
+- Intervalos de confianza
+- Ecuación del modelo
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+ggplot(data.frame(altura, peso), aes(x = altura, y = peso)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(title = "Regresión Lineal: Peso vs Altura",
+       x = "Altura (cm)",
+       y = "Peso (kg)") +
+  theme_minimal()
+```
+:::
+:::::
+
+## Limitaciones
+
+- Solo modela relaciones lineales 
+- Sensible a valores extremos 
+- No implica causalidad 
+- Requiere verificación de supuestos 
+
+## Ejercicio práctico
+
+### Analizar la relación entre: 
+- Horas de estudio y calificación final 
+- Edad y presión arterial 
+- Ingreso y gasto mensual
+
+## Extra
+### Regresión lineal no es la única opción: 
+- Regresión polinómica \
+- Regresión logística \
+- Regresión de Poisson \
+- Regresión de Cox \
+- Etcétera
+
+## Referencias
+
+1. James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning. Springer.
+2. Fox, J. (2015). Applied regression analysis and generalized linear models. Sage Publications.
